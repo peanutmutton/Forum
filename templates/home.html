@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% for category in category_list %}
+        <h2 class="m-2">{{ category.title }}</h2>
+        <ul class="list-group m-3">
+            {% for forum in category.forum_set.all %}
+                <a href="{% url 'forum_detail' forum.id %}" class="list-group-item ">
+                    <h4 >{{ forum.title }}</h4>
+                </a>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+
+{% endblock %}

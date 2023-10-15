@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ forum.title }}</h2>
+    <ul class="list-group">
+        {% for thread in forum.thread_set.all %}
+            <a href="#" class="list-group-item ">
+                {{ thread.title }}
+            </a>
+        {% endfor %}
+    </ul>
+{% endblock %}
