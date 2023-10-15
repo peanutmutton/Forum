@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>This is thread_detail page</h1>
+    <p>{{ object.title }}</p>
+    <ul class="list-group">
+        {% for post in thread.post_set.all %}
+        	<li class="list-group-item ">
+                {{ post.text_content }}
+            </li>
+        {% endfor %}
+    </ul>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit">
+    </form>
+{% endblock %}
