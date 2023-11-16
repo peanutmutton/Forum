@@ -1,12 +1,15 @@
 setup:
   addons:
     - plan: heroku-postgresql
+#      added from https://devcenter.heroku.com/articles/build-docker-images-heroku-yml
+      as: DATABASE
 build:
   docker:
     web: Dockerfile
 release:
-  command:
-    - -python manage.py collectstatic --noinput
   image: web
+  command:
+    - python manage.py collectstatic --noinput
+
 run:
   web: gunicorn forum.wsgi
