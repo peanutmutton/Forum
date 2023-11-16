@@ -2,7 +2,7 @@ setup:
   addons:
     - plan: heroku-postgresql
 #      added from https://devcenter.heroku.com/articles/build-docker-images-heroku-yml
-      as: DATABASE
+#      as: DATABASE
 build:
   docker:
     web: Dockerfile
